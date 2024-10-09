@@ -1,0 +1,493 @@
+\documentclass[11pt,a4paper,oneside]{book}
+\usepackage{amsmath}
+\usepackage{color}
+\usepackage{amssymb}
+
+\title{Notes on Advanced Electrodynamics Electromagnetic Theory}
+\author{Genrui}
+
+\begin{document}
+\maketitle
+\tableofcontents
+\chapter{Basic Electrodynamics Theory}
+\section{Maxwell Equation}
+
+
+\subsection{Maxwell Equation in Matter}
+Maxwell's equations in matter is written:
+\begin{equation}\left\{
+	\begin{aligned}
+		& {\displaystyle \oint_{\partial \Omega} \mathbf {D} \cdot \mathrm {d} \mathbf {S} =\iiint _{\Omega }\rho _{\text{f}}\,\mathrm {d} V}\\ \\
+		&{\displaystyle {\begin{aligned}\oint _{\partial \Sigma }&\mathbf {H} \cdot \mathrm {d} {\boldsymbol {\ell }}=\iint _{\Sigma }\mathbf {J} _{\text{f}}\cdot \mathrm {d} \mathbf {S} +{\frac {d}{dt}}\iint _{\Sigma }\mathbf {D} \cdot \mathrm {d} \mathbf {S} \\\end{aligned}}}\\ \\
+		&{\displaystyle \oint_{\partial \Omega} \mathbf {B} \cdot \mathrm {d} \mathbf {S} =0}\\ \\
+		&{\displaystyle \oint _{\partial \Sigma }\mathbf {E} \cdot \mathrm {d} {\boldsymbol {\ell }}=-{\frac {d}{dt}}\iint _{\Sigma }\mathbf {B} \cdot \mathrm {d} \mathbf {S} }
+	\end{aligned}\right.
+\end{equation}
+which is in differential view:
+\begin{equation}\left\{
+	\begin{aligned}
+		&{\displaystyle \nabla \cdot \mathbf {D} =\rho _{\text{f}}}\\
+		&{\displaystyle \nabla \times \mathbf {H} =\mathbf {J} _{\text{f}}+{\frac {\partial \mathbf {D} }{\partial t}}}\\
+		&{\displaystyle \nabla \cdot \mathbf {B} =0}\\
+		&{\displaystyle \nabla \times \mathbf {E} =-{\frac {\partial \mathbf {B} }{\partial t}}}
+	\end{aligned}\right.\label{MxD}
+\end{equation}
+with definition of auxiliary fields, electrical displacement and magnetizing field:
+\begin{equation}\label{DE}
+	\mathbf{D}=\varepsilon_0\mathbf{E}+\mathbf{P}=\varepsilon_0\mathbf{E}+\varepsilon_0\chi\mathbf{E}=\varepsilon_0\varepsilon_r\mathbf{E}=\varepsilon\mathbf{E}
+\end{equation}
+\begin{equation}\label{HB}
+	\mathbf{H}=\frac{\mathbf{B}}{\mu_0}-\mathbf{M}\Rightarrow \mathbf{B}=\mu_0(\mathbf{H}+\mathbf{M})=\mu_0(1+\chi_m)\mathbf{H}=\mu\mathbf{H}
+\end{equation}
+and for current we have Ohm's Law\footnote{Refer to Eq.(3.49) of notes on General Physics for comments on free current $\mathbf{J}_\text{f}$.}:
+\begin{equation}
+	\mathbf{J}_\text{f}=\mathbf{J}'+\mathbf{J}_o=\mathbf{J}'+\sigma\mathbf{E}
+\end{equation}
+where $\mathbf{J}'$ is external current and $\sigma$ is conductivity of the medium, and charge conservation says:
+\begin{equation}
+	\nabla\cdot\mathbf{J}+\frac{\partial \rho}{\partial t}=0
+\end{equation}
+\paragraph{Relative Permittivity \& Permeability} Some times relative permittivity and permeability are not simply a scalar but a second order tenser:\begin{equation}
+	\mathbf{D}=\stackrel{\leftrightarrow}{\varepsilon}\mathbf{E},\quad\mathbf{B}=\stackrel{\leftrightarrow}{\mu}\mathbf{H}
+\end{equation}
+and for some special mediums, they even have:\begin{equation}
+	\mathbf{D}=\stackrel{\leftrightarrow}{\varepsilon}\mathbf{E}+\stackrel{\leftrightarrow}{\xi}\mathbf{H},\quad\mathbf{B}=\stackrel{\leftrightarrow}{\mu}\mathbf{H}+\stackrel{\leftrightarrow}{\zeta}\mathbf{E}
+\end{equation}
+\paragraph{Boundary Conditions} boundary conditions of Maxwell equations writes:\begin{equation}\left\{
+	\begin{aligned}
+		&\mathbf{n}_{21}\cdot\left(\mathbf{D}_2-\mathbf{D}_1 \right)=\sigma_\text{f}\\
+		&\mathbf{n}_{21}\cdot\left(\mathbf{H}_2-\mathbf{H}_1 \right)=0\\
+		&\mathbf{n}_{21}\times\left(\mathbf{D}_2-\mathbf{D}_1 \right)=0\\
+		&\mathbf{n}_{21}\times\left(\mathbf{H}_2-\mathbf{H}_1 \right)=\mathbf{K}_\text{f}
+	\end{aligned}\right.
+\end{equation}
+
+
+
+
+
+
+
+\subsection{Maxwell Equation of Simple Harmonic Field}
+\paragraph{Wave Equation and Helmholtz Equation} Wave function is:\begin{equation}
+	{\displaystyle {\partial ^{2}u \over \partial t^{2}}=v^{2}\nabla ^{2}u},\quad u=u(\mathbf{R},t)
+\end{equation}
+and separate the variables the equation becomes:
+\begin{equation}
+	u=A(\mathbf{R})T(t)\Rightarrow A\ddot T=v^2T\nabla^2A
+\end{equation}
+that is:\begin{equation}
+	\frac{\nabla^2 A}{A}=\frac{\ddot T}{vT^2}=-k^2
+\end{equation}
+in which $k$ is taken for simplicity, and we get Helmholtz equation:
+\begin{equation}
+	\left(\nabla^2 +k^2 \right)A(\mathbf{R})=0
+\end{equation}
+\paragraph{Maxwell Equations in the form of Wave Equations} From Eq.\ref{MxD} we can reshape Maxwell Equations into the form of wave equations:
+\begin{equation}
+	\left\{
+	\begin{aligned}
+		&\nabla\times\left(\nabla\times\mathbf{H}\right)=\nabla\times \mathbf{J}_\text{f}+\nabla\times\frac{\partial \mathbf{D}}{\partial t}\\
+		&\nabla\times\left(\nabla\times\mathbf{E}\right)=-\nabla\times\frac{\partial \mathbf{B}}{\partial t}
+	\end{aligned}
+	\right.
+\end{equation}
+notice that $\mathbf{J}_\text{f}$ is set to 0 in this situation and using Eq.\ref{DE}\&\ref{HB}, additionally:\begin{equation}
+	\nabla\times\left(\nabla\times\mathbf{A}\right)=\nabla\left(\nabla\cdot\mathbf{A}\right)-\nabla^2\mathbf{A}
+\end{equation}
+we have:\begin{equation}\label{WM}
+	\left\{
+	\begin{aligned}
+		&\left(\nabla^2-\mu\varepsilon\frac{\partial^2}{\partial t^2} \right)\mathbf{E}=0\\
+		&\left(\nabla^2-\mu\varepsilon\frac{\partial^2}{\partial t^2} \right)\mathbf{B}=0
+	\end{aligned}
+	\right.
+\end{equation}
+
+\paragraph{Simple Harmonic Field} Taking the simplest form of solves of the above equations:\begin{equation}\label{harmonic}
+	\left\{
+	\begin{aligned}
+		&\mathbf{E}(\mathbf{R},t)=\mathbf{E}(\mathbf{R})\text{e}^{-i\omega t}\\
+		&\mathbf{B}(\mathbf{R},t)=\mathbf{B}(\mathbf{R})\text{e}^{-i\omega t}
+	\end{aligned}
+	\right.
+\end{equation}
+It's trivial to find out that:
+\begin{equation}
+		\frac{\partial}{\partial t}=-i\omega
+\end{equation}
+so Eq.\ref{WM} can be rewrite into Helmholtz equations:\begin{equation}\label{HEQ}\left\{
+	\begin{aligned}
+		&\left(\nabla^2+k^2 \right)\mathbf{E}=0\\
+		&\left(\nabla^2+k^2 \right)\mathbf{B}=0
+	\end{aligned}
+	\right.
+\end{equation}where:\begin{equation}
+	k^2=\omega^2\varepsilon\mu=\frac{\omega^2}{c^2},\quad c=\frac{1}{\sqrt{\varepsilon\mu}}
+\end{equation}
+ and again take the simplest form of solutions of Eq.\ref{HEQ}, we have the wave function of \textbf{plane wave}:\begin{equation}\label{plane}\left\{
+ 	\begin{aligned}
+ 		&\mathbf{E}(\mathbf{R})=\mathbf{E}_0\text{e}^{i\mathbf{k}\cdot\mathbf{R}}\\
+ 		&\mathbf{B}(\mathbf{R})=\mathbf{B}_0\text{e}^{i\mathbf{k}\cdot\mathbf{R}}
+ 	\end{aligned}\right.
+ \end{equation}
+From Maxwell equations we have:\begin{equation}\label{eq122}\begin{aligned}
+	&\left\{
+	\begin{aligned}
+		&\nabla\times\mathbf{E}=-\frac{\partial\mathbf{B}}{\partial t}=i\omega\mathbf{B}\\
+		&\nabla\times\mathbf{H}=0+\frac{\partial \mathbf{D}}{\partial t}=-i\omega\varepsilon \mathbf{E}
+	\end{aligned}\right.\\\\
+	\textcolor{red}{\Rightarrow}&\textcolor{red}{
+	\left\{
+	\begin{aligned}
+		&\mathbf{B}(\mathbf{R})=_\text{(time harmonic)}-\frac{i}{\omega}\nabla\times\mathbf{E}(\mathbf{R})=_\text{(plane wave)}\frac{\mathbf{k}}{\omega}\times\mathbf{E}(\mathbf{R})\\
+		&\mathbf{E}(\mathbf{R})=\frac{i}{\varepsilon\mu\omega}\nabla\times\mathbf{B}(\mathbf{R})=\frac{ic}{k}\nabla\times\mathbf{B}(\mathbf{R})=v\mathbf{B}(\mathbf{R})\times\mathbf{e}_\text{k}
+	\end{aligned}
+	\right.}	
+\end{aligned}
+\end{equation}
+If take \textbf{\textcolor{red}{impedance}}:\begin{equation}
+	Z=\sqrt{\frac{\mu}{\varepsilon}}
+\end{equation}can one rewrite:\begin{equation}
+	Z\mathbf{H}=\mathbf{e}_\mathbf{k}\times \mathbf{E}
+\end{equation}
+
+\paragraph{Sommerfeld radiation condition} Arnold Sommerfeld defined the condition of radiation for a scalar field satisfying the Helmholtz equation as \begin{quotation}
+  "the sources must be sources, not sinks of energy. The energy which is radiated from the sources must scatter to infinity; no energy may be radiated from infinity into ... the field."
+\end{quotation}specifically:
+\begin{equation}
+	{\displaystyle \lim _{|\mathbf{r}|\to \infty }|x|^{\frac {n-1}{2}}\left({\frac {\partial }{\partial |\mathbf{r}|}}-ik\right)u(x)=0}
+\end{equation}
+which implies at infinite far from the source, that in every direction in space, the wave has to tend to a plane wave propagating in that direction, and the difference between the actual wave and a plane wave propagatin in that direction has to decrease faster than $|x|^{\frac {n-1}{2}}$.
+
+
+\subsection{Energy}
+\paragraph{Energy density} The energy density of any electromagnetic field is:\begin{equation}
+	w=\frac{1}{2}\left(\mathbf{E}\cdot\mathbf{D}+\mathbf{B}\cdot\mathbf{H} \right)
+\end{equation}
+of which proof is at 3.2.3 of Notes on General Physics.
+\paragraph{Poynting Vector}
+Energy conservation says:\begin{equation}\label{pwds}
+	\frac{\partial}{\partial t}\int_\Omega w\text{d}V+\int_{\Sigma\Omega}\mathbf{s}\text{d}\mathbf{S}+\int_\Omega p_l \text{d}V=0
+\end{equation}
+where $p_l$ is the power density of loss and $\mathbf{s}$ is energy density flux vector, Poynting Vector. Using Eq.\ref{pwds} and Ohm's Law Eq.1.5:\begin{equation}
+	\frac{\partial}{\partial t}\int_\Omega \frac{1}{2}\left(\mathbf{E}\cdot\mathbf{D}+\mathbf{B}\cdot\mathbf{H} \right)\text{d}V+\int_\Omega \sigma E^2 \text{d}V=-\int_{\Omega}\left( \nabla\cdot \mathbf{s}\right)\text{d}V
+\end{equation}thus:\begin{equation}
+	\nabla\cdot\mathbf{s}=-(\varepsilon E\dot E+\mu H\dot H )-\sigma E^2=\mathbf{H}\cdot\nabla\times\mathbf{E}-\mathbf{E}\cdot\nabla\times\mathbf{H}=\nabla\cdot(\mathbf{E}\times\mathbf{H})
+\end{equation}
+then Poynting Vector is:\begin{equation}
+	\mathbf{s}=\mathbf{E}\times\mathbf{H}
+\end{equation}
+\paragraph{Momentum Flux}
+\begin{equation}
+	\mathbf{G}=\rho\mathbf{v}=\frac{1}{c^2}wv=\frac{1}{c^2}\mathbf{s}
+\end{equation}
+
+
+\subsection{Energy of Harmonic Plane Wave (Complex Poynting Th.)}
+Using the solution in Eq.\ref{harmonic}\&\ref{plane} we have the simplest wave:
+\begin{equation}
+	\left\{\begin{aligned}
+		&\mathbf{E}(\mathbf{r},t)=\mathbf{E}_0\text{e}^{i(\varphi_E(\mathbf{R})-\omega t)}=\tilde{\mathbf{E}}(\mathbf{r})\text{e}^{-i\omega t} \\
+		&\mathbf{H}(\mathbf{r},t)=\mathbf{H}_0\text{e}^{i(\varphi_H(\mathbf{R})-\omega t)}=\tilde{\mathbf{H}}(\mathbf{r})\text{e}^{-i\omega t} 
+	\end{aligned}\right.
+\end{equation}
+for plane waves:\begin{equation}
+	\varphi_i(\mathbf{r})=\varphi_{i0}+\mathbf{k}\cdot\mathbf{R}
+\end{equation}
+and define the actual field which can be measured as the real parts of those solution, can one describe the wave in complex forms, which means:\begin{equation}
+	\begin{aligned}
+		&\mathbf{E}^{(\text{Real})}(t) = \Re\left[\mathbf{\tilde{E}} e^{-i\omega t}\right] = \frac{1}{2} \left( \mathbf{\tilde{E}} e^{-i\omega t} + \mathbf{\tilde{E}}^* e^{i\omega t} \right)\\
+		&\mathbf{H}^{(\text{Real})}(t) = \Re\left[\mathbf{\tilde{H}} e^{-i\omega t}\right] = \frac{1}{2} \left( \mathbf{\tilde{H}} e^{-i\omega t} + \mathbf{\tilde{H}}^* e^{i\omega t} \right)
+	\end{aligned}
+\end{equation}
+and the energy is:\begin{equation}
+	w=\frac{1}{2}\left(\varepsilon \Re\left[\mathbf{\tilde{E}} e^{-i\omega t}\right]^2+\mu\Re\left[\mathbf{\tilde{H}} e^{- i\omega t}\right]\right)
+\end{equation}
+and its average\footnote{$\Re\left[\mathbf{\tilde{E}} e^{-i\omega t}\right]^2=\frac{1}{4}\langle \mathbf{\tilde{E}}^2 \text{e}^{-2i\omega } + \mathbf{\tilde{E^*}}^2 \text{e}^{2i\omega} +2\mathbf{\tilde{E}}\mathbf{\tilde{E^*}} \rangle = \frac{1}{2}\mathbf{\tilde{E}}\mathbf{\tilde{E^*}}$}:\begin{equation}
+	\langle w\rangle = \frac{1}{4}\left( \varepsilon\mathbf{\tilde{E}}\mathbf{\tilde{E^*}} +\mu\mathbf{\tilde{H}}\mathbf{\tilde{H^*}}\right)=\frac{1}{4}\left( \varepsilon\mathbf{{E}}_0\mathbf{{E}}^*_0 +\mu\mathbf{{H}}_0\mathbf{{H}}^*_0\right)
+\end{equation}
+\paragraph{Complex Poynting Vector} The instantaneous Poynting vector can be defined:\begin{equation}
+	\mathbf{s}=\frac{1}{2}\mathbf{\tilde{E}}\times\mathbf{\tilde{H^*}}
+\end{equation}which stands for average energy flux vector, and can be proved by method similar to the one above.
+\section{Strum-Liouville Theory}
+
+
+
+
+\chapter{Plane Wave}
+\section{Plane Wave in Dispersive Medium}
+
+\subsection{Dispersive relation}
+For the influence of the external electromagnetic field on the medium is continuous, the electronic displacement is written:\begin{equation}
+	\mathbf{D}(\mathbf{R},t)=\int_{-\infty}^\infty \text{d}t'\,\varepsilon(t-t') \mathbf{E}(\mathbf{R},t')
+\end{equation}
+with $\varepsilon(t-t')=0$ when $t-t'<0$ as a result of cause-and-effect relationship. Thus for a simple harmonic wave:\begin{equation}
+	\begin{bmatrix}
+		\mathbf{E}(\mathbf{R},t)\\
+		\mathbf{H}(\mathbf{R},t)\\
+	\end{bmatrix}
+	=\begin{bmatrix}
+		\mathbf{E}(\mathbf{R})\\
+		\mathbf{D}(\mathbf{R})\\
+	\end{bmatrix} \text{e}^{-i\omega t}
+\end{equation}
+substitute Eq.2.2 into Eq.2.1 we have:\begin{equation}
+	\mathbf{D}(\mathbf{R})= \mathbf{E}(\mathbf{R}) \int_{-\infty}^\infty \text{d}t'\, \varepsilon(t-t') \text{e}^{-i\omega (t'-t)}= \varepsilon(\omega)\mathbf{E}(\mathbf{R})
+\end{equation} 
+with dispersion relation:\begin{equation}
+	\varepsilon(\omega)=\int_{-\infty}^\infty \varepsilon(t)\text{e}^{i\omega t}\, \text{d}t
+\end{equation}
+and one can also wirte:\begin{equation}
+	\begin{bmatrix}
+		\mathbf{B}(\mathbf{R})\\
+		\mathbf{J}_f(\mathbf{R})\\
+	\end{bmatrix}=
+	\begin{bmatrix}
+		\mu(\omega)& \sigma(\omega)
+	\end{bmatrix}
+	\begin{bmatrix}
+		\mathbf{H}(\mathbf{R})\\
+		\mathbf{E}(\mathbf{R})\\
+	\end{bmatrix}
+\end{equation}
+
+\subsection{The propagation of a monochromatic plane wave in a dispersive medium}
+Recall the technic used in Eq.\ref{eq122} we get:\begin{equation}
+	\mathbf{k}\times\mathbf{k}\times\mathbf{E}=-\omega^2\mu_0\varepsilon (\omega) \mathbf{E}
+\end{equation}
+then:\begin{equation}
+	k=\omega\sqrt{\mu_0\varepsilon(\omega)}=k_0\sqrt{\frac{\varepsilon(\omega)}{\varepsilon_0}}
+\end{equation}
+\paragraph{Conductive Media} In a conductive media, the Maxwell Eq. changes into:\begin{equation}
+	\nabla\times\mathbf{B}=\mu_0\left( \sigma_c\mathbf{E}+\varepsilon_b\frac{\partial \mathbf{E}}{\partial t} \right)
+\end{equation}
+thus:\begin{equation}
+	\mathbf{k}\times\mathbf{B}=-\omega\mu_0\left( \varepsilon_b+i\frac{\sigma_c}{\omega} \right)\mathbf{E}
+\end{equation}
+then can one define a complex permittivity:\begin{equation}
+	\varepsilon_\text{eff} = \varepsilon_b+i\frac{\sigma_c}{\omega}
+\end{equation}
+and complex $k-\omega$ dispersive relation.
+
+One can also wirte:\begin{equation}
+	\varepsilon(\omega)=\varepsilon'+i\varepsilon''
+\end{equation} accordingly:\begin{equation}
+	\mathbf{k}(\omega)=\mathbf{k}'+i\mathbf{k}''
+\end{equation} and with $\mathbf{k}\cdot\mathbf{k}=\omega^2\mu\varepsilon$ can derive $\mathbf{k}'$ \& $\mathbf{k}''$ easily.
+
+Recall the definition of wave vactor $\mathbf{k}$:\begin{equation}
+	\mathbf{E}=\mathbf{E}_0\text{e}^{-\mathbf{k}''\cdot\mathbf{R}}\text{e}^{i(\mathbf{k}'\cdot\mathbf{R}-\omega t)}
+\end{equation}
+It is obvious that the complex wave vector represents a plane wave (real part) with exponential decay (imaginary part).
+
+\section{Polarization of Monochromatic Plane Wave}
+\subsection{Polarization Ellipse}
+For monochromatic plane wave:\begin{equation}
+	\begin{aligned}
+		\mathbf{E}(\mathbf{R},t)&=(\mathbf{e}_1E_{10}+\mathbf{e}_2E_{20})\text{e}^{i(\mathbf{k}\mathbf{R}-\omega t)}\\
+		&=(\mathbf{e}_1|E_{10}|\text{e}^{i\delta_1}+\mathbf{e}_2|E_{20}|\text{e}^{i\delta_2})\text{e}^{i(\mathbf{k}\mathbf{R}-\omega t)}
+	\end{aligned}
+\end{equation}
+take the real part of the field and reorganize the expression using the substitution $\phi=\mathbf{k}\mathbf{R}-\omega t$:
+\begin{equation}
+	\begin{aligned}
+		\Re(\mathbf{E})=&\textcolor{red}{|E_{10}|(\cos\delta_1\cos\phi-\sin\delta_1\sin\phi)}\mathbf{e}_1 \\
+		&+\textcolor{blue}{|E_{20}|(\cos\delta_2\cos\phi-\sin\delta_2\sin\phi)}\mathbf{e}_2\\
+		=&\textcolor{red}{E_1}\mathbf{e}_1+\textcolor{blue}{E_2}\mathbf{e}_2
+	\end{aligned}
+\end{equation}
+Reform the red and blue equality, we have:
+\begin{equation}
+	\begin{bmatrix}
+		\dfrac{E_1}{|E_{10}|}\\ \\
+		\dfrac{E_2}{|E_{20}|}
+	\end{bmatrix}
+	=\begin{bmatrix}
+		\cos\delta_1\cos\phi-\sin\delta_1\sin\phi\\
+		\\
+		\cos\delta_2\cos\phi-\sin\delta_2\sin\phi
+	\end{bmatrix}
+\end{equation}
+and right multiplied by $\displaystyle{\begin{bmatrix} \sin\delta_2 & -\sin\delta_1 \\ \cos\delta_2 & -\cos\delta_2 \end{bmatrix}}$, and the magnitude squared of the 2 sides of the equation should be the same:
+\begin{equation}\label{pzty}
+	\left( \dfrac{E_1}{|E_{10}|}\right)^2 +\left( \dfrac{E_2}{|E_{20}|}\right)^2-2\left( \dfrac{E_1}{|E_{10}|}\right)\left( \dfrac{E_2}{|E_{20}|}\right)\cos\delta=\sin^2\delta
+\end{equation}
+where the substitution $\delta_2-\delta_1=\delta$ is used. And Eq.\ref{pzty} is the polarization ellipse of the wave.
+
+\subsection{Linear Polarization}
+If:\begin{equation}
+	\delta=m\pi,\,m\in \mathbb{Z}
+\end{equation}
+then the polarization ellipse degenerates into a line:\begin{equation}
+	\dfrac{E_2}{|E_{20}|}=(-1)^m\dfrac{E_1}{|E_{10}|}
+\end{equation}
+
+\subsection{Circular Polarization}
+If:\begin{equation}
+	\delta=\left(m+\frac{1}{2}\right)\pi,\,m\in \mathbb{Z},\quad |E_{10}|=|E_{20}|=E_0
+\end{equation}
+then the polarization ellipse turns into a circle:\begin{equation}
+	E_1^2+E_2^2=E_0^2
+\end{equation}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\newpage
+\appendix
+\chapter{Ex.1 Basic Electrodynamics Theory}
+\paragraph{Ex.1.1} Deriving the Frequency Domain Form of Maxwell's Equations Using Fourier Transform.
+\begin{quotation}
+  Solution: Assuming:
+  \begin{equation}
+  	\begin{aligned}
+  		&\mathcal{F}[\mathbf{E}](\mathbf{r},\omega)=\mathbf{e},\quad &\mathcal{F}[\mathbf{B}](\mathbf{r},\omega)=\mathbf{b}&\\
+  		&\mathcal{F}[\mathbf{D}](\mathbf{r},\omega)=\mathbf{d}=\varepsilon \mathbf{e},\quad &\mathcal{F}[\mathbf{H}](\mathbf{r},\omega)=\mathbf{h}=\frac{1}{\mu}\mathbf{b}&\\
+  		&\mathcal{F}[\rho](\mathbf{r},\omega)=\varrho,\quad &\mathcal{F}[\mathbf{J}](\mathbf{r},\omega)=\mathbf{j}&\\
+  	\end{aligned}
+  \end{equation}
+  Notice that:\begin{equation}
+  	\begin{aligned}
+  		\mathcal{F}[\dot A(t)](\mathbf{r},\omega)&=\int_{-\infty}^{\infty}\dot A(t)\text{e}^{-i\omega t}\text{d}t=i\omega\int_{-\infty}^{\infty}A(t)\text{e}^{-i\omega t}\text{d}t+0
+  		\\&=i\omega\mathcal{F}[A(t)](\mathbf{r},\omega)
+  	\end{aligned}
+  \end{equation}
+\end{quotation}
+and Laplacian obviously has no impact on the Fourier transformation, thus if Fourier transformation is applied to Maxwell equations, we have:
+\begin{equation}\left\{
+	\begin{aligned}
+		&{\displaystyle \nabla \cdot \mathbf {d} =\varrho _{\text{f}}}\\
+		&{\displaystyle \nabla \times \mathbf {h} =\mathbf {j} _{\text{f}}+i\omega \mathbf{d}}\\
+		&{\displaystyle \nabla \cdot \mathbf {b} =0}\\
+		&{\displaystyle \nabla \times \mathbf {e} =-i\omega \mathbf{b}}
+	\end{aligned}\right.
+\end{equation}
+
+\newpage
+
+\paragraph{Ex.1.5} The dielectric constant of a linear isotropic medium is $\varepsilon(\omega)=\varepsilon'(\omega)-i\varepsilon''(\omega)$, prove:\begin{equation}
+	\begin{aligned}
+		&\varepsilon'(\omega)=\varepsilon_0-\frac{2}{\pi}\int_0^\infty\frac{z \varepsilon''(z)}{z^2-\omega^2}\text{d}z\\
+		&\varepsilon''(\omega)=\frac{2\omega}{\pi}\int_0^\infty\frac{ \varepsilon'(z)}{z^2-\omega^2}\text{d}z
+	\end{aligned}
+\end{equation}
+\begin{quotation}
+	Proof: First prove Kramers-Kronig relations relations, by Cauchy's residue theorem for complex integration:
+\begin{equation}
+	{\displaystyle 0=\oint {\frac {\varepsilon(z)}{z-\omega }}\,dz=\int _{-\infty }^{\infty }{\frac {\varepsilon (z)}{z-\omega }}\,dz-i\pi \varepsilon (\omega ).}
+\end{equation}
+	take $\varepsilon(\omega)=\varepsilon'(\omega)-i\varepsilon''(\omega)$ and rearrange it:
+	\begin{equation}
+		\begin{aligned}
+			\varepsilon'(\omega)&=\frac{-1}{\pi}\!\!\int _{-\infty }^{\infty }{\frac {\varepsilon'' (z)}{z-\omega }}\,dz=\frac{-2}{\pi}\!\!\int _{0 }^{\infty }{\frac {(z+\omega)\varepsilon'' (z)}{z^2-\omega^2 }}\,dz\\
+			&=\varepsilon_0-\frac{2}{\pi}\!\!\int _{0 }^{\infty }{\frac {z\varepsilon'' (z)}{z^2-\omega^2 }}\,dz
+		\end{aligned}
+	\end{equation}
+	where $\omega$ is omitted for $\varepsilon''$ is an even fuction, and $\varepsilon_0$ is add to make sure $\varepsilon'(0)=\varepsilon_0$.
+	\begin{equation}
+		\begin{aligned}
+			\varepsilon''(\omega)&=\frac{1}{\pi}  \int_{-\infty}^{\infty} \frac{\varepsilon^{\prime}(z)}{z-\omega} d z=\frac{2}{\pi}  \int_{0}^{\infty} \frac{(z+\omega)\varepsilon^{\prime}(z)}{z^2-\omega^2} d z\\
+			&=\frac{2\omega}{\pi}\int_{0}^{\infty} \frac{\varepsilon^{\prime}(z)}{z^2-\omega^2} d z
+		\end{aligned}
+	\end{equation}
+	where $z$ is omitted for $\varepsilon'$ is an odd fuction.
+\end{quotation}
+
+\newpage
+
+\paragraph{Ex.1.8 (Complex Poynting Th.)}
+\begin{quotation}
+	Proof: Notice:\begin{equation}
+		\nabla \cdot\left(\mathbf{E} \times \mathbf{H}^*\right)=\mathbf{H}^* \cdot \nabla \times \mathbf{E}-\mathbf{E} \cdot \nabla \times \mathbf{H}^*
+	\end{equation}
+	and using the Maxwell Eq.:\begin{equation}\left\{
+		\begin{aligned}
+		&\nabla \times \mathbf{E}  =-i \omega \mathbf{B} \\
+		&\textcolor{red}{\nabla \times \mathbf{H}^*  =-i \omega \mathbf{D}^*+\mathbf{J}^*}
+		\end{aligned}\right.
+	\end{equation}
+	using it simplify Eq.A.8 with $\mathbf{B}={\boldsymbol{\mu}} \cdot \mathbf{H}, \, \mathbf{D}^*={\boldsymbol{\varepsilon}}^* \cdot \mathbf{E}^*$:\begin{equation}
+		\begin{aligned}
+\nabla \cdot\left(\mathbf{E} \times \mathbf{H}^*\right) & =-i \omega \mathbf{H}^* \cdot \mathbf{B}+i \omega \mathbf{E} \cdot \mathbf{D}^*-\mathbf{E} \cdot \mathbf{J}^* \\
+& =-i \omega \mathbf{H}^* \cdot {\boldsymbol{\mu}} \cdot \mathbf{H}+i \omega \mathbf{E} \cdot {\boldsymbol{\varepsilon}}^* \cdot \mathbf{E}^*-\mathbf{E} \cdot \mathbf{J}^*
+\end{aligned}
+	\end{equation}
+	thus:\begin{equation}
+		\begin{aligned}
+			&\int_S d \mathbf{S} \cdot\left(\mathbf{E} \times \mathbf{H}^*\right)\\&=-i \omega \int_V d V\left(\mathbf{H}^* \cdot {\boldsymbol{\mu}} \cdot \mathbf{H}-\mathbf{E} \cdot {\boldsymbol{\varepsilon}}^* \cdot \mathbf{E}^*\right)-\int_V d V \mathbf{E} \cdot \mathbf{J}^*
+		\end{aligned}
+	\end{equation}
+	take:\begin{equation}
+		{\boldsymbol{\mu}}=\mu'-i\mu,\quad\boldsymbol{\varepsilon}^*=\varepsilon'-i\varepsilon'',\quad \mathbf{J}^*=\sigma^*\mathbf{E}
+	\end{equation}
+	then comes:\begin{equation}
+		\begin{aligned}
+			&\int_S d \mathbf{S} \cdot\left(\mathbf{E} \times \mathbf{H}^*\right)\\=&- \omega \int_V d V\left(\mu'\mathbf{H}^* \cdot \mathbf{H}+\varepsilon'\mathbf{E}\cdot \mathbf{E}^*\right)-\int_V d V \sigma^*\mathbf{E} \cdot \mathbf{E}^*\\
+			&-i2\omega\int_V\text{d}V(w_{\text{wav}}-w_{\text{eav}})
+		\end{aligned}
+	\end{equation}
+\end{quotation}
+
+\paragraph{Ex.1.9} If take $\varepsilon=\varepsilon (\mathbf{r})$, prove:\begin{equation}
+	\nabla^2\mathbf{E}+k^2\mathbf{E}=-\nabla\left( \mathbf{E}\cdot\frac{\nabla \varepsilon}{\varepsilon} \right)
+\end{equation}
+\begin{quotation}
+	Proof: Notice:\begin{equation}
+		\nabla\times\nabla\times\mathbf{E}=\omega^2\mu\varepsilon \mathbf{E}
+	\end{equation}
+	and:\begin{equation}
+		\nabla\times\nabla\times\mathbf{E}=\nabla(\nabla\cdot\mathbf{E})-\nabla^2\mathbf{E}
+	\end{equation}
+	From Maxwell Eq.:\begin{equation}
+		\nabla\cdot\mathbf{D}=0=\nabla\cdot(\varepsilon\mathbf{E})\Rightarrow\nabla\cdot\mathbf{E}=\mathbf{E}\cdot\frac{\nabla\varepsilon}{\varepsilon}
+	\end{equation}thus:\begin{equation}
+		\omega^2\mu\varepsilon \mathbf{E}=\nabla\times\nabla\times\mathbf{E}=\nabla\left(\mathbf{E}\cdot\frac{\nabla\varepsilon}{\varepsilon}\right)-\nabla^2\mathbf{E}
+	\end{equation}take $k^2=\omega^2\varepsilon\mu$:\begin{equation}
+		\left(\nabla^2+k^2\right)\mathbf{E}=\nabla\left(\mathbf{E}\cdot\frac{\nabla\varepsilon}{\varepsilon}\right)
+	\end{equation} 
+\end{quotation}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}
